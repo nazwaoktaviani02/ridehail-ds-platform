@@ -1,0 +1,46 @@
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: grab
+      POSTGRES_PASSWORD: grab123
+      POSTGRES_DB: grabdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U grab -d grabdb"]
+      interval: 5s
+      retries: 5
+
+  analytics:
+    build: .
+    volumes:
+      - .:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - KADA_API_KEY=${KADA_API_KEY}
+      - KADA_BASE_URL=${KADA_BASE_URL}
+    command: >
+      sh -c "python pipeline/ingest.py &&
+             python pipeline/transform.py"
+
+  dashboard:
+    build: .
+    command: streamlit run dashboard/app.py
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - KADA_API_KEY=${KADA_API_KEY}
+      - KADA_BASE_URL=${KADA_BASE_URL}
+
+volumes:
+  pgdata:
