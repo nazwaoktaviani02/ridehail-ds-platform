@@ -1,16 +1,16 @@
-# 🚗 Ridehail DS Platform
+# Ridehail DS Platform
 
 An end-to-end data science platform that simulates real-world analytics work at a ride-hailing company. Built to practice the full data scientist workflow — from raw data ingestion to ML-powered demand forecasting and AI-assisted analysis.
 
 ---
 
-## 🎯 Why I Built This
+##  Why I Built This
 
 Most data science projects stop at the notebook level. This project goes further — containerized with Docker, backed by a real database, and deployed as an interactive dashboard. It reflects the kind of scalable, systematic solutions that modern data teams actually build.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -23,7 +23,7 @@ Most data science projects stop at the notebook level. This project goes further
 
 ---
 
-## ✨ Features
+##  Features
 
 - 📈 **Analytics Dashboard** — orders trend, city breakdown, promo impact, driver efficiency
 - 🌦 **Segmentation** — weather impact, weekday vs weekend, day-of-week patterns
@@ -32,7 +32,7 @@ Most data science projects stop at the notebook level. This project goes further
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 ridehail-ds-platform/
@@ -63,7 +63,7 @@ ridehail-ds-platform/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Prerequisites
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
@@ -92,7 +92,7 @@ Go to [http://localhost:8501](http://localhost:8501)
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 ```
 orders.csv
@@ -106,7 +106,7 @@ All services run in Docker containers and communicate through Docker Compose's i
 
 ---
 
-## 📊 ML Model
+## ML Model
 
 - **Algorithm:** Gradient Boosting Regressor
 - **Target:** Predicted number of orders
@@ -114,7 +114,3 @@ All services run in Docker containers and communicate through Docker Compose's i
 - **Evaluation:** MAE, RMSE, R²
 
 ---
-
-## 📬 Contact
-
-Made by [Nazwa Oktaviani](https://github.com/nazwaoktaviani02)
